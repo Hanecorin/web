@@ -1,0 +1,114 @@
+학습 내용
+
+1. 온라인 교안
+	- https://www.w3schools.com/js/js_ajax_intro.asp
+	
+2. 비동기
+	- Asynchronous JavaScript And XML
+	- web 화면 이동 없이도 즉 새로고침 등이 없이 실행중인 html단일 
+	  page에서 요청,응답 모두 다 처리 하는 기술
+	
+3. 적용 기술셋
+	1. js
+		주요 API
+			XMLHTTPRequest(xhr)
+				- 모든 포멧의 데이터를 요청과 응답 처리 하는 주요 API
+				- 요청도 하고 응답되는 데이터를 받음
+	2. back end
+		java / C# / php / ASP ...
+		
+	3. 요청, 응답 시 사용되는 데이터 포멧
+		xml, csv, json(대표)
+		text, html(응답시 server는 text로 간주, 브라우저 받아서 tag처리)
+		
+4. 실습 단계
+	1단계 - 
+		html <-> servlet
+		: 버튼 클릭하면 servlet이 이름만 출력해서 html 화면에 출력
+		step01ajax.html <-> Step01.java
+		
+	2단계
+		html -> servlet	-> jsp -> html
+		버튼 -> json포멧으로 요청 객체에 저장 -> jsp에게 출력 -> 출력된 data를 html이 다시 받음
+		
+	
+	3단계 - 응용
+		1. 추가
+			json simple library 사용 	
+		
+		
+		
+5. 개발을 위한 의사 코드
+	html 버튼 만들기 - get
+		xhr 생성 , 요청 방식과 servlet 지정, 요청실제 실행
+		new 생성자 / open() / send()
+	servlet 이 요청받고 응답 - get방식 처리
+		doGet()
+	html에 일반 text로 응답
+		doGet()에서 println
+		
+	html은 text를 받고(?) 브라우저에 출력
+		server가 응답한 text를 받음
+		콜백함수로 등록된 처리 로직	
+
+6. 주요 API
+	1. XMLHTTPRequest
+		- 비동기 요청 객체
+		
+	2. readyState 
+		- server와 client가 통신시에 주고받는 상태 번호
+		- 요청시작 : 1 / 요청 완료 : 2/ 응답 시작 : 3/ 응답 완료 : 4
+	
+	3. status
+		- server가 client에게 응답 상태값
+		- 200 : 정상 응답
+		- 404 : url 요청 오류
+		- ... 
+			
+	4. onreadystatechange
+		- readyState 값 변경시 자동 실행되는 콜백 함수 기능 등록 속성
+	
+	5. open()
+		- 요청방식, server url 정보
+		
+		- get 방식
+			- server에 전송하는 데이터가 없을 경우
+				open("get", "server url정보");
+			- server에 전송하는 데이터가 있을 경우
+				open("get", "url?key=value&key2=value")	
+				
+		- post 방식
+			- server에 전송하는 데이터가 없을 경우
+				open("post", "server url정보");
+				
+			- server에 전송하는 데이터가 있을 경우(중요)
+				open("post", "server url정보");
+				xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	
+	6. send()
+		- 실제 요청
+		- get방식
+			- server에 전송하는 데이터가 없을 경우
+				send()
+			- server에 전송하는 데이터가 있을 경우
+				send()
+				
+		- post방식
+			- server에 전송하는 데이터가 없을 경우
+				send()
+			- server에 전송하는 데이터가 있을 경우
+				send("key=value&key2=value2")
+
+
+7. 주의사항
+	1. 응답 데이터가 JSON 포멧인 경우
+		- contentType="application/json; charset=UTF-8" 설정이 있다 하더라도
+		html의 script이 비동기 객체의 responseText 속성은 순수 문자열로 인지
+		해결책 : JSON.parse() 함수로 변환
+		
+		- 불필요한 의미없는 tag들은 다 정제 후에 응답 필수
+
+
+
+
+		

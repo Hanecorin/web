@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  <!-- 구글 차트 필수  -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <h3>Google Chart</h3>
+    <br><hr><br>
+
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <script type="text/javascript">
+
+        //구글 차트 corechart 사용을 위한 설정
+        google.charts.load('current', {'packages':['corechart']});
+        
+        //구글차트에 콜백으로 drawchart 함수 등록
+        //setOnLoadCallback():body end tag가 실행된 직후 자동 호출함을 의미
+        //window.onload와 같은 시점에 호출
+        google.charts.setOnLoadCallback(drawChart);
+
+        //사용자 정의 함수 - 콜백으로 등록
+        function drawChart() {
+          
+          // 2차원 배열의 데이터로 chart 구성
+          var data = google.visualization.arrayToDataTable([
+            ['Task', 'Hours per Day'],
+            ['Work',     11],
+            ['Eat',      2],
+            ['Commute',  2],
+            ['Watch TV', 2],
+            ['Sleep',    7]
+          ]);
+          
+          //chart title로 적용
+          //java script 리터럴 형식의 object
+          var options = {      
+            title: 'My Daily Activities'
+          };
+          
+          //실제 구글 chart 그리는 객체
+          //필요 정보가 어디에 그릴지에 대한 html의 위치 정보가 parameter로 반영
+          //piechart()를 기반으로 객체 생성(java 문법과 동일)
+          var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+  
+          //실제 chart 그리는 함수
+          chart.draw(data, options);
+        }
+    </script>
+</body>
+</html>

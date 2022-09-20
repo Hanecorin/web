@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+
+
+	<h3>Form tag에 입력된 데이터를 서버에서 획득하는 기술 학습</h3>
+	<hr>
+
+	<h5>1. radio 버튼 학습
+	<i class='fas fa-coffee' style='font-size:20px;color:#ffe072'></i>
+	<i class="fa fa-amazon" style="font-size:20px;color:red"></i>
+	</h5>
+	<form action="../formTest" method="post">
+		<input type="radio" name="fav_language" value="HTML"> <label
+			for="html">HTML</label><br> <input type="radio"
+			name="fav_language" value="CSS"> <label for="css">CSS</label><br>
+		<input type="radio" name="fav_language" value="JavaScript"> <label
+			for="javascript">JavaScript</label> <input type="submit" value="전송">
+	</form>
+	<br><hr><br>
+
+	<h5>2. checkbox 버튼 학습</h5>
+	<form action="../formTest" method="post">
+
+		<input type="checkbox" id="vehicle1" name="vehicle" value="Bike">
+		<label for="vehicle1"> I have a bike</label><br> <input
+			type="checkbox" id="vehicle2" name="vehicle" value="Car"> <label
+			for="vehicle2"> I have a car</label><br> <input type="checkbox"
+			id="vehicle3" name="vehicle" value="Boat"> <label
+			for="vehicle3"> I have a boat</label> <input type="submit" value="전송">
+	</form>
+	<br><hr><br>
+
+<h5>3. color 학습</h5>
+	<form action="../formTest" method="post">
+		<label for="favcolor">Select your favorite color:</label> 
+		<input type="color" id="favcolor" name="favcolor">
+	<input type="submit" value="전송">
+</form>
+<br><hr><br>
+
+<h5>4. Tel 학습</h5>
+	<form action="../formTest" method="post">
+		  <input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3,4}-[0-9]{4}">
+		
+	<input type="submit" value="전송">
+</form>
+<br><hr><br>
+
+<h5>5. TextArea</h5>
+<form action="../formTest" method="post">
+	<textarea rows="5" cols="30" name="ta"></textarea>
+
+<input type="submit" value="전송">
+</form>
+<br><hr><br>
+
+<h5>6. select</h5>
+<form action="../formTest" method="post">
+ 
+ <select name="cars" id="cars">
+  	<option value="volvo">Volvo</option>
+  	<option value="saab">Saab</option>
+  	<option value="mercedes">Mercedes</option>
+  	<option value="audi" selected>Audi</option>
+ </select>
+	
+<input type="submit" value="전송">
+</form>
+<br><hr><br>
+
+</body>
+</html>

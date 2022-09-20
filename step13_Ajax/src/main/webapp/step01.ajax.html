@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>step01ajax.html</title>
+</head>
+<body>
+
+	<button onclick="ajaxTest()">1. 비동기 요청 core 코드</button>
+	<button onclick="ajaxTest2()">2. 비동기 요청 코드</button>
+	
+	<div id="dataView"></div>
+
+	<script type="text/javascript">
+		//step02 - 현 추세 코드
+		//https://www.w3schools.com/js/js_ajax_intro.asp
+		/* onload 
+			- 기본 속성 중 onreadystatechange 속성 대체
+			- 기능
+				: 응답 완료와 정상 응답에 대한 부분 비교 없이 실행 
+		*/
+		function ajaxTest2() {
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				document.getElementById("dataView").innerHTML = this.responseText;
+			}
+			xhttp.open("GET", "step01?name=연아", true); //true 생략가능, 비동기 요청 의미 
+			xhttp.send();
+		}
+
+		//step01 : 필수 기본 이론이 반영된 코드
+		function ajaxTest() {
+
+			//비동기 통신 객체
+			// 요청도 하고 응답 처리도 함
+			const xhttp = new XMLHttpRequest();
+
+			//자동 실행되는 즉 콜백함수
+			/* 정상 응답인 경우만 dataView div tag에 데이터 출력
+				- 정상 응답
+					응답 완료(4)와 정상 응답(200)
+			
+			   this.readyState
+			   	: XMLHttpRequest 객체를 의미하는 키워드 - this
+			   	
+			   	onreadystatechange
+			   		- server와 client가 통신시 모든 시점에 등록된 콜백 함수 자동 호출
+			   	readyState
+			   		- 요청 시작(1), 요청 완료(2), 응답 시작(3), 응답 완료(4)
+				status	
+					- server가 응답한 상태값 보유하는 속성
+					- 200 : 정상 응답
+					- 404 : 오류 url로 자원 요청
+					- 500 : server 단 개발 및 운영 오류
+			 */
+			xhttp.onreadystatechange = function() {
+
+				//	alert(this.readyState);
+
+				if (this.readyState == 4 && this.status == 200) {
+					document.getElementById("dataView").innerHTML = this.responseText;
+				}
+			};
+
+			//요청방식과 요청받는 server 프로그램
+			/* post 방식 요청
+				xhttp.open("post", "step01name=영자");
+			//?
+				xhttp.send("name=영자");
+			
+			
+			   get 방식 요청 
+			    xhttp.open("get", "step01?name=영자");
+				xhttp.send();
+			 */
+			//xhttp.open("get", "step01?name=영자");//get방식
+			xhttp.open("post", "step01");
+
+			//post방식에만 적용되는 설정
+			//client가 server에 전송하는 데이터가 있을 경우에만 추가하는 설정
+			//생략시 데이터 전송 불가 
+			//post로 비동기 기술로 서버에 데이터 전송이 유효함을 의미
+			xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+			//실제 요청
+			xhttp.send("name=영자"); //post 요청
+			//xhttp.send(); //get요청
+		}
+	</script>
+
+</body>
+</html>

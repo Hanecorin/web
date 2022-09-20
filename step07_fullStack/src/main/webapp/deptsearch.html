@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>deptsearch.html</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.openBtn {
+  background: #f1f1f1;
+  border: none;
+  padding: 10px 15px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.openBtn:hover {
+  background: #bbb;
+}
+
+.overlay {
+  height: 100%;
+  width: 100%;
+  display: none;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: rgb(0,0,0);
+  /* background-color: rgba(0,0,0, 0.9); */
+  background-color: rgb(118 214 187 / 90%);
+}
+
+.overlay-content {
+  position: relative;
+  top: 46%;
+  width: 80%;
+  text-align: center;
+  margin-top: 30px;
+  margin: auto;
+}
+
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  cursor: pointer;
+  color: white;
+}
+
+.overlay .closebtn:hover {
+  color: #ccc;
+}
+
+.overlay input[type=text] {
+  padding: 15px;
+  font-size: 17px;
+  border: none;
+  float: left;
+  width: 80%;
+  background: white;
+}
+
+.overlay input[type=text]:hover {
+  background: #f1f1f1;
+}
+
+.overlay button {
+  float: left;
+  width: 20%;
+  padding: 15px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay button:hover {
+  background: #bbb;
+}
+</style>
+</head>
+<body>
+
+<div id="myOverlay" class="overlay">
+  <span class="closebtn" onclick="closeSearch()" title="Close Overlay">×</span>
+  <div class="overlay-content">
+  
+    <form action="com">
+    
+    	<input type="hidden" name="command" value="deptone">
+      	<input type="text" placeholder="부서번호" name="search">
+      	<button type="submit"><i class="fa fa-search"></i></button>
+    
+    </form>
+    
+  </div>
+</div>
+
+<h2>하나의 부서 검색 요청</h2>
+<p>부서 번호 입력 하셔요!</p>
+<button class="openBtn" onclick="openSearch()">부서 번호</button>
+
+<script>
+//클릭시에 팝업창(모달) 오픈되게 하는 설정(보이게 하는 설정)
+function openSearch() {
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+//x버튼 클릭시에 팝업창(모달) 종료 하게 하는 javascript 코드(안보이게 하는 설정)
+function closeSearch() {
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+     
+</body>
+</html>
+

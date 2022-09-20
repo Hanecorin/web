@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step10googleCharApply.html</title>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+
+    <h3>chart data 를 동적으로 구성</h3>
+    <br><hr><br>
+
+
+    <button onclick="chartView()">chart 보기</button>
+    <button onclick="chartHidden()">chart 숨기기</button>
+
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+    <script type="text/javascript">
+        
+        
+
+        //chart 숨기기
+        //step02 - chart부분만 안보이게 하는 설정 //?
+
+        function chartHidden(){
+            document.getElementById("piechart").style.display = 'none';
+
+        }
+
+        //step011 - 브라우저 새로고침
+        // function chartHidden(){
+        //     location.reload(); //브라우저 새로고침으로 인지(초기화면으로 재 구성)
+            
+        // }
+        
+        
+        //chart 보기 버튼 클릭시 chart 보기
+        function chartView(){
+            google.charts.load('current', { 'packages': ['corechart'] });
+            google.charts.setOnLoadCallback(drawChart);
+            document.getElementById("piechart").style.display = 'block';
+
+        }
+
+        /* ? 동적 데이터 즉 함수 호출시에 새로운 데이터로 처리
+        가령 서버에서 응답하는 데이터일수도 있고, client가 브라우저에 입력하는 데이터 일수도 있고.. 등등
+
+        */
+
+        function drawChart() {
+
+            let data = [
+                ['Task', 'Hours per Day'],
+                ['Work', 11],
+                ['Eat', 2],
+                ['Commute', 2],
+                ['Watch TV', 2],
+                ['Sleep', 7]
+            ];
+            newData(data);
+        }
+
+
+            function newData(v) {
+                var data = google.visualization.arrayToDataTable(v);
+
+            }
+
+
+            var options = {
+                title: 'My Daily Activities'
+            };
+
+
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+
+            chart.draw(data, options);
+        
+    </script>
+</body>
+
+</html>

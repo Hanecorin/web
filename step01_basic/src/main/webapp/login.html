@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>로그인</h3>
+	
+	<!-- http://ip:port/context/login.html
+		 http://localhost:8080/step01_basic/login.html
+			id/pw 입력후 전송
+		 http://ip:port/context/login
+		 http://localhost:8080/step01_basic/login 
+	-->
+	<form action = "login" method = "get">
+		id <input type = "text" name = "id"> <br>
+		pw <input type = "password" name = "pw"> <br>
+		<input type = "submit" value = "get 로그인">
+	</form>
+	
+	
+	<br><hr><br>
+	
+	<form action = "login" method = "post">
+		id <input type = "text" name = "id"> <br>
+		pw <input type = "password" name = "pw"> <br>
+		<input type = "submit" value = "post 로그인">
+	</form>
+	
+	
+</body>
+</html>

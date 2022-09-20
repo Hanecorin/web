@@ -1,0 +1,63 @@
+front 개발 언어
+
+1. 종류
+	html
+	css
+	java script
+		- 브라우저 화면에 이벤트 처리
+		- 동적 구성이 가능한 언어
+		- 현대세
+			back 단 개발 스펙으로 back end 개발 가능
+				- node.js
+				
+			front 단 framework
+				- vue.js, react.js
+				
+2. 비동기
+	js로 front 로직 처리 <-> java or python back 로직 처리	
+	
+	
+	
+*** Java Script ***
+
+1. 구성
+	1. 변수 - 데이터
+	2. 함수 - 독립적으로 개발 가능한 기능
+	3. 메소드	- 클래스(객체)가 보유한 기능
+	4. class 
+	
+2. 특징
+	1. python 과 흡사
+		- 타입 선언 없이 값 대입
+		- java는 type 명확
+			타입 변수명 = 값;(타입에 부합되는 값만 대입 가능)
+			
+	2. 위치
+		1. html or jsp 파일 내부에 직접 구현
+			<script></script>
+		2. *.js 라는 파일로 별도로 구현
+			<script src="위치와파일명"></script>
+	
+3. 문법
+	1. 변수 선언시 사용하는 키워드
+		var
+		const
+		let
+		
+	2. 함수
+		function 함수명([..]){}
+		
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+				

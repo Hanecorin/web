@@ -1,0 +1,125 @@
+java기반의 Back End 개발 기술 
+- web application의 서버 로직 
+
+
+1. 기술스텍
+	- servlet & jsp
+	- servlet이 원조, jsp는 servlet 이후에 제시된 스펙
+	- jsp는 최초 실행시
+		servlet 변환 -> 컴파일 -> 서버에 객체 생성 -> 서비스
+		: 개발자 - jsp 개발만
+		: 변환 - tomcat이 jsp를 처음으로 요청 시점에 자동으로 생성 및 컴파일, 변환 해줌
+		jsp는 html/css/java script와 혼용해서 view 개발 하는 스펙
+		
+2. 주용도
+	1. servlet - controller 로직으로 개발
+	2. jsp - java코드로 되어 있는 데이터를 브라우저 화면에 출력하는 view 로직으로 개발
+	
+3. html과 jsp의 차이점
+	1. html
+		- html, css, javascript로 개발
+	2. jsp
+		- html, css, javascript, java로 개발
+		
+	- 중요 : 자바 데이터를 브라우저 화면에 출력하기 위해서는 jsp 필수 
+		
+4. 필수 암기 사항
+	1. http 프로토콜 기반의 통신
+		- ip와 port로 브라우저와 server(was)간의 통신
+		- 웹 서핑
+	2. 필수 sw
+		1. client - 브라우저
+		2. server - WAS
+		
+	3. http 통신은 일반 자바 class와 통신 불가
+		반드시 servlet 또는 jsp 와만 통신
+		client <-> servlet or client <-> jsp 구조
+
+	4. 주요 API		
+		
+	5. server 기능
+		1. servlet&jsp의 스펙을 고려
+		2. client가 http 통신으로 요청시 url에 맞는 프로그램 실행
+			- servlet 객체 생성, service() 호출
+			- 요청, 응답 객체를 client별 1:1로 생성
+	
+	6. 개발자
+		1. server 설정 필수
+		2. api에서 제공한 api들로만 개발
+		3. 웹개발 스펙에 맞게 부모 클래스는 HttpServlet 상속등 정해진 rule에 맞게 개발 
+		
+		
+5. 용어
+	1. WAS - Web Application Server(server)
+	2. tomcat - was의 일종 즉 제품명
+			  - java의 back end 언어만 실행하는 제품
+	3. server = web server = container = servlet engine ...
+	4. 페이로드
+		페이로드는 사용에 있어서 전송되는 데이터를 뜻한다.
+	
+	
+6. 주요 API
+	1. http 통신 지원
+		- http 프로토콜 고민 없이 사용가능하게 함
+		- javax.servlet.http.HttpServlet
+		- 상속만 받아 개발
+		
+	2. client 가 http 통신 즉 브라우저로 서버에 요청시 client의 접속 정보등으로 자동 생성
+		- javax.servlet.http.HttpServletRequest
+		- client가 입력한 정보 보유
+			- server 관점에서 client가 제공하는 데이터 획득 메소드
+				getParameter()
+		
+	
+	3. client 가 http 통신 즉 브라우저로 서버에 요청후 해당 client에게만 응답도 자동 생성
+		- javax.servlet.http.HttpServletResponse
+		- 응답 포멧 
+			: mime type - 인터넷 상에서 사용되는 content 포멧
+			https://developer.mozilla.org/ko/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+		- 인코딩
+		- 응답 데이터 
+		....
+	
+
+7. http url 구조
+
+	1. url 방식
+		http://ip:port/context명[project명]/file명
+		html, jsp - 확장자 필수
+		servlet - 확장자 없음, url mapping값으로 처리
+		
+		
+	2. 실제 실행된 url
+		http://localhost:8080/step01_basic/NewFile.html
+		http://localhost:8080/step01_basic/NewFile.jsp
+		
+		http://localhost:8080/step01_basic/playdata
+		
+
+
+8. client 가 server에 http 통신으로 요청시의 다양한 방식
+	1. get 방식
+		
+	
+	2. post 방식
+
+
+	사례 - 게시판
+		1번 게시글 보기 요청(검색) - select(web의 get방식)
+		2번 게시글 수정 - update(web의 post방식 또는 put방식)
+		2번 게시글 삭제 - delete(web의 delete방식)
+		5번 게시글 새로 작성 - insert(web의 post방식 또는 put방식)
+		
+9. 실습후 다시 보는 주요 API
+	1. HttpServlet
+		service() : get 또는 post 즉 모든 방식 처리
+		doGet() : get방식 요청만 처리
+		doPost() : post방식 요청만 처리 
+		
+	2. HttpServletRequest
+		String getParameter()
+			- client가 전송한 데이터 획득
+			
+	3. HttpServletResponse	
+		setContentType("mimetype;인코딩")
+		PrintWriter getWriter() : 2byte 브라우저에 출력 객체 반환

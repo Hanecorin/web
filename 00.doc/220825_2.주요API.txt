@@ -1,0 +1,37 @@
+1. HttpServlet
+	service() : get 또는 post 즉 모든 방식 처리
+	doGet() : get방식 요청만 처리
+	doPost() : post방식 요청만 처리 
+	
+2. HttpServletRequest
+	String getParameter()
+	String[] getParameterValues()
+	setAttribute()
+	Object getAttribute()
+	RequestDispatcher getRequestDispatcher()
+	HttpSession getSession() : 생성 또는 반환
+	Cookie[] getCookies()
+	setCharacterEncoding();
+		
+3. HttpServletResponse	
+	setContentType("mimetype;인코딩")
+	PrintWriter getWriter() 
+	sendRedirect()
+	addCookie()
+
+4. Cookie
+	생성자
+	setMaxAge()
+	getName()
+	getValue()
+
+5. HttpSession
+	getId()
+	setAttribute()
+	getAttribute()
+	invalidate()
+
+6. RequestDispatcher
+	forward()	
+	include()	
+		

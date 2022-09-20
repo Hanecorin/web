@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>js 함수 구현 및 호출</h3>
+    <br><hr><br>
+
+    <button id = "nameBtn">클릭시 이름 출력</button> <br>
+    <button id = "ageBtn">클릭시 나이 출력</button> <br>
+
+    <script>
+        //1. js 함수 선언문을 활용한 개발
+        //parameter가 여러개로 호출한다 하더라도 가장 첫번째 parameter값만 활용
+        function myFun1(v1){
+            console.log(v1);
+
+        }
+        myFun1(1);
+        myFun1(11,12);
+        myFun1(111,112,113);
+        
+        //parameter가 부족하게 호출된다 하더라도 문제 없이 실행
+        console.log("*** step02 ***");
+        function myFun2(v1,v2){
+            console.log(v1,v2);
+
+        }
+        myFun2(1);
+        myFun2(11,12)
+        myFun2(111,112,113);
+
+        //2. 함수 표현식 
+        console.log("*** step03 : 함수 표현식 ***");
+
+        let name = function(v1){
+            console.log(v1*v1);
+
+        }
+        name(10); //함수 표현식 호출 문법
+
+        //3. 즉시 실행 함수
+        //이름 부여
+        console.log("*** step04 : 즉시 실행 함수 ***");
+        (function myFun3(){
+            console.log("1. 이름있는 즉시 실행 함수");
+        }());
+
+        (function myFun4(v1){
+            console.log("2. 이름있는 즉시 실행 함수 -----",v1);
+        }(100));
+
+        //익명 함수
+        (function(){
+            console.log("3. 이름이 없는 즉시 실행 함수");
+        }());
+
+        //4. 콜백 함수
+
+        /* 일반 함수 ㅓ럼 구현 및 호출을 모든 코드로 명시적으로 진행하는것이 아닌
+        client의 동작으로 인해 발생되는 행위를 시스템(application 포함)은 이벤트로 인지
+        이벤트가 발생시에 시스템이 직접 호출하는 함수
+        개발자 관점에선
+            버튼구현 -> 클릭시에 처리기능을 함수로 구현 -> 버튼에 함수 등록
+            client 버튼 클릭 -> 시스템이 함수 호출
+        */
+        console.log("*** step05 : 콜백 함수 ***");
+        /* html 문서에서 nameBtn 이라는 버튼 tag 착출
+           click시에 이름 출력 로직을 콜백으로 등록
+
+        */
+        let btn = document.getElementById("nameBtn"); //<button id = "nameBtn"> 클릭시
+            btn.addEventListener('click', function(){
+                alert("김혜경");
+            });
+
+    </script>
+</body>
+</html>

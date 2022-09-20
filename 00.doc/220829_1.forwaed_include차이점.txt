@@ -1,0 +1,45 @@
+RequestDispatcher API의 메소드
+1. 실습 경로 
+	step02_pageMove의 step03 package
+	
+include와 forward 차이점
+
+1. forward
+	- A -> B로 이동시 실제 브라우저 응답은 B실행시 진행
+	
+	
+2. include
+	- A <- B 즉 A에 B를 포함해서 출력
+	
+
+===================================================
+역량 강화
+
+1. step06_layout project
+
+2. 화면 layout에 특정 데이터들 동적 출력
+
+3. 실습 설계
+	index.html or home.html
+	index.html -> main.jsp(jsp include tag 사용 가능)
+		korea.jsp
+		london.jsp
+		paris.jsp
+			
+	공통된 코드 파일로 생성 및 분리
+		nav.jsp - 메뉴 선택
+		header.jsp
+		footer.jsp
+		
+		css/style.css - 공통 ui 코드 분리
+		
+		
+4. 내용 정리
+	1. <jsp:include>
+		- 서로 다른 jsp(servlet)간에 이동시 사용
+		
+	2. href="#tag의 id 속성 값"
+		- 해당 html 파일의 위치 이동
+		- id 값에 따라 위아래 이동 조절 가능
+		- id값을 의미하는 표현 : #
+		

@@ -1,0 +1,91 @@
+web page 이동 기술
+
+1. html 이동 기술
+	1. 버튼
+		1. form tag의 submit 버튼
+			method="get" or method="post로 요청 방식 결정
+			form의 action속성값으로 page이동 
+			
+		2. button tag의 버튼
+			get방식 요청		
+			onclick="location.href='이동되는 page'"
+		
+		
+	2. 링크 
+		- 무조건 get방식 요청으로 간주
+		- method="값" 표현없이 요청시에는 무조건 get으로 간주
+		- get방식은 default 방식 
+
+2. Servlet API 이동 기술
+	move.html -> A -> B
+		html 파일엔 java 코드 사용 불가 따라서 servlet API 사용 불가
+		A 에서 B servlet으로 이동시의 학습
+		
+	1. forward
+		- 요청 방식 유지 기술
+		
+	2. redirect
+		- 이동시 요청 방식 재 갱신
+
+		
+3. 이해를 위한 실습 구조
+	step02/login.html(form의 submit 버튼) -> step02.LoginCheck(servlet) 
+					유효
+						유효한 경우 새로운 이름을 저장해서 step02.SuccessView(servlet) 출력 위임
+						forward
+					무효
+						무효한 회원입니다 step02.FailView(servlet) 출력 위임
+						redirect
+
+	url-mapping
+		LoginCheck : encore.check
+		SuccessView : succ
+		FailVieew : fail
+
+
+4. 코드로 이해하기
+	1. forward 방식
+		move.html get방식 -> A -> B
+		A의 doGet()의 parameter는 request, response 생성
+		A에서 B로 request, response 제공하기 때문에 B에서는 생성이 아닌 유지 
+		A에서 요청 객체에 새로운 데이터 저장 후 B에서 사용 가능
+		
+		forward test url 변천사
+			move.html -> A forward -> B
+			http://localhost:8080/step02_pageMove/move.html	
+			http://localhost:8080/step02_pageMove/A	
+			
+	
+	2. redirect 방식	
+		move.html get방식 -> A -> B
+		A의 doGet()의 parameter는 request, response 생성
+		B의 doGet()의 parameter는 request, response 생성
+		- A에서 client 브라우저에게 B의 정보 제공해주면 브라우저는 바로 B 요청하는 구조		
+		A에서 요청 객체에 새로운 데이터 저장해도 B는 새로운 요청 객체 생성 따라서 데이터 활용 불가		
+				
+		redirect test
+			move.html -> A redirect -> B
+			http://localhost:8080/step02_pageMove/move.html	
+			http://localhost:8080/step02_pageMove/B	
+	
+	
+5. 코드로 이해했나 질문
+	1. forward 방식
+		move.html post방식 -> A -> B
+			A의 doPost()
+			B의 doPost()
+			
+	
+	2. redirect 방식	
+		move.html post방식 -> A -> B
+			A의 doPost()
+			B의 doGet()
+	
+	
+	
+	
+	
+	
+	
+			
+		

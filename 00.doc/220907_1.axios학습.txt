@@ -1,0 +1,25 @@
+axios
+
+1. 비동기 library
+
+2. 장점
+
+	- 간결하게 비동기 개발 가능
+	- 기술 문서가 쉽게 잘 되어 있음
+	
+3. 개발 양식
+	1단계 - library 설정
+	2단계 - 해당 API 사용해서 개발
+	
+	
+4. 실습 단계
+	1단계 
+	first.html <-> Step01.java
+	get방식(버튼)     doGet() 호출 확인 및 문자열 데이터 응답
+	https://axios-http.com/kr/docs/example
+	
+	post방식(버튼)    doPost() 호출 확인 및 문자열 데이터 응답
+ 	https://axios-http.com/kr/docs/post_example
+ 	
+ 	2단계 
+ 		axios() API 사용해서 통신

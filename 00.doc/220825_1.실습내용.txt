@@ -1,0 +1,41 @@
+실습
+
+[1] page이동 학습
+
+1단계 : page 이동 학습
+
+2단계 : 
+	다양한 form 연습
+	server단의 java 기반의 servlet이라는 back end programm은
+	parameter로 유입되는 데이터 획득 및 활용
+	
+	step01_baisc 프로젝에서 실습 
+	
+	
+[2] client의 로그인~로그아웃까지의 상태 유지 기술 학습
+1. 종류
+	1. 쿠키 - client 시스템에 상태유지값 저장
+	2. 세션 - server 시스템에 client 상태유지값 저장
+
+2. 저장 데이터 제약
+	1. 쿠키 - 저장하는 데이터 타입 제한이 있음, 문자열만 가능 
+	2. 세션 - 저장하는 데이터 타입 모든 객체 타입 다 가능
+	
+	
+3. 실습 구조
+	step03_sessionTracking
+	1. 쿠키 학습
+		login.html -> LoginCheck.java -> SuccessView.java -> Logout.java 로그아웃
+			입력	->	  유효한 경우 쿠키저장	-> 쿠키에 저장된 데이터 획득해서 브라우저 출력 ->
+	2. 세션 학습 		
+		login.html -> LoginCheck.java -> SuccessView.java -> Logout.java 로그아웃
+			입력 		->	유효한 경우 세션저장 -> 세션에 저장된 데이터 획득및 사용 ->	세션 삭제
+	
+	
+4. 자율주제로 상태유지 기술 학습 예제 구성 및 완성
+	- 주목적은 review
+	- 혼자 또는 랜덤 팀
+	- step04_myArt
+	- 수다, 우테코
+	
+		

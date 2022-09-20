@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3> js 연습장 </h3>
+
+    <br>
+    <hr><br>
+    <!--
+        tag(element)에서 this라는 키워드는 tag 자체를 의미
+        html 모든 tag와 text등은 객체로 간주
+        this 는 java에서와 같이 자기자신의 객체 참조 변수    
+    -->
+    <input type="text" id="one" value="가" onclick="myFun(this.value)"> <br>
+    <input type="text" id="two" value="나" onclick="myFun(this)"> <br>
+
+    <br>
+    <hr>
+    <div name="test"></div>
+    <hr color="red">
+
+    <div name="test"></div>
+    <hr color="blue">
+
+    <div name="test"></div>
+
+    <script>
+        // function myFun(v){
+        function myFun() {
+            // console.log(v.value);
+            // document.getElementsByName("test")[0].innerHTML = "<button>click</button>";
+
+            let nameAll = document.getElementsByName("test");
+            // console.log(nameAll.length);
+
+            console.log(nameAll[0]);
+
+            // for (let x in nameAll){
+            //     console.log(x);
+            // }
+
+            for (let i = 0; i < nameAll.length; i++) {
+                // console.log(nameAll[i]);
+                nameAll[i].innerHTML = "<button>click</button>";
+            }
+
+
+            // document.getElementById("test").innerHTML = "<button>click</button>";
+
+            // const person = {fname:"John", lname:"Doe", age:25};
+
+            // let text = "";
+            // for (let x in person) {
+            //     text += person[x];
+            // }
+            // console.log(text);
+
+        }
+
+    </script>
+
+    <br><hr color="yellow" size="5"><br>
+    <script>
+        //백틱 '을 활용한 문자열 표현식
+        let name = "유재석"
+        let data = `test ${name}
+        data
+        `;
+        console.log(data);
+    </script>
+</body>
+
+</html>

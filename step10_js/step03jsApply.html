@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step03jsApply.html</title>
+</head>
+<body>
+    <h3>이벤트 처리 연습</h3>
+    <br><hr><br>
+
+    <input type="text" id="one" value="playdata"> <br>
+    <input type="text" id="two" value="encore"> <br>
+
+    <button id="btn">이동</button>
+
+    <script>
+        document.getElementById("btn").addEventListener("click", function(){
+            const oneBtn = document.getElementById("one");
+            const twoBtn = document.getElementById("two");
+            
+            const tempValue1 = oneBtn.value;
+            const tempValue2 = twoBtn.value;
+
+            
+            oneBtn.value = tempValue2;
+            twoBtn.value = tempValue1;
+        });
+
+
+    </script>
+
+    <br><hr><br>
+    <button id = "imgChange">이미지 변경</button>
+    <img id = "img" src="1.jpeg" alt= ""  width="50%">
+    
+    <script>
+        /* ?이미지 클릭시에 다른 이미지로 변환해 주세요
+        */
+        
+            const imgBtn = document.getElementById("imgChange");
+            const img = document.getElementById("img");
+
+            imgBtn.addEventListener("click", function(){
+                img.src = "2.jpeg";
+            });
+    </script>
+    <br><hr><br>
+
+    <button id = "btn2" onclick = "btnClick()">변경될 예정</button>
+    <script>
+        /* button tag 의 자식 text 데이터 수정 전, 후 출력시에
+        출력 문구는 수정된 직후의 데이터로 브라우저에서 출력
+        즉 크롬인 경우 함수 종료시에 출력하는 관점에서 이해해 보기
+        */
+        function btnClick(){
+            // document.getElementById("btn2").appendChild = "playdata";
+
+            console.log(document.getElementById("btn2"));
+
+            document.getElementById("btn2").innerText = "playdata"; //ok
+            // document.getElementById("btn2").innerHTML = "playdata"; //ok
+            console.log(document.getElementById("btn2"));
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

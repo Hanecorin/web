@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>step04object.html</title>
+</head>
+<body>
+    <h3>js object(데이터용)</h3>
+    <br><hr><br>
+    1.js는 객체 기반 언어
+    2. 객체 지향 - java, C#... / 객체 기반 - js(객체로도 사용가능하고, 아니어도 가능)
+
+    <script>
+        console.log("*** step01 - 객체 리터럴 ***");
+        //name과 age를 property라는 용어로 지칭
+        /* people 변수가 참조하는 객체의 info 속성이 보유한 익명 함수 구현부에는
+            객체의 멤버 변수들 지정시에 this 키워드 필수
+            객체 자신의 멤버 의미
+        */
+        let people = {
+            name : '재석', 
+            age : 40,
+            info : function(){ //변수(property)에 익명 함수 대입
+                console.log(this.name + " - " + this.age);
+            }
+        };
+        console.log(people.name);
+        
+        //새로운 속성 추가
+        people.address = '서울';
+        console.log(people);
+
+        //속성 삭제
+        delete people.address;
+        console.log(people);
+
+        people.info();
+
+        /* IT 전영역에서 사용되는 데이터 포멧
+        JSON 즉 js가 원조이나, NoSQL의 실제 데이터 저장 포멧으로까지 사용
+        모바일 기기에 출력되는 대부분의 데이터 구조
+        client 므라우저로 server에선 json 형식으로 응답하고
+        client 브라우저의 js 코드로 필요데이터 가공 및 활용
+        */
+        console.log("*** step02 - JSON[JavaScript Object Notation] ***");
+
+
+        console.log("*** step03 - server에서 응답한 데이터라 가정 ***");
+        /* server가 client에게 응답시 모두다 문자열
+        단 html text는 html tag로 해석, css text도 css 코드로 인식등
+        브라우저의 해석기들이 문법 오류 없이 실행
+        단, json 포멧의 문자열들은 가공이 필요
+        가공 연습용 test 코드
+        d1, d3 변수가 응답된 포멧을 브라우저에선 d2, d4처럼 인식
+        * 주목적 단순 string -> JSON 객체로 변환
+        */
+        let d1 = {"name" : "연아", "age" : 50};
+        //d1 형식으로 서버에서 응답시 가공된 client가 인식하는 데이터
+        let d2 = '{"name" : "연아", "age" : 50}';
+
+
+        let d3 = {'name' : '연아', 'age' : 50};
+        //d3 형식으로 서버에서 응답시 가공된 client가 인식하는 데이터
+        let d4 = "{'name' : '연아', 'age' : 50}";
+
+
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
+
+

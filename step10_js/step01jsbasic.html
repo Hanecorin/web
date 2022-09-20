@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>js의 변수와 함수 구현 및 호출 문법</h3>
+
+    <br><hr><br>
+    1. js 실행기(해석기)는 브라우저 내부에 내장 <br>
+    2. 개발시 f12 즉 브라우저 개발자 tool 실행 필수 <br>
+    3. why? js의 버그를 브라우저 console 창 확인 필수이기 때문 <br>
+
+    <hr>
+
+    <script>
+        // 단일 line 주석
+        /* 블록 주석
+        1. 변수 선언 : var, const, let 키워드로 변수 선언
+        */
+        var v1;
+        const v2 = "final 값 즉 상수, 수정 불가한 데이터";
+        let v3;
+        // v4;
+        // console.log(v1); //선언된 변수 호출
+        // console.log(v2);
+        // console.log(v3);
+
+        // 함수 구현 및 호출
+        function myFun1(){
+            var v5 = 1; //로컬변수
+            const v6 = '상수'; //로컬변수
+            let v7 = 100; //로컬변수
+
+            //전역변수
+            v8 = "var, const, let 없을경우 초기화 필수"
+
+            console.log(v5, v6, v7, v8);
+        }
+        myFun1();
+
+        //이미 선언 및 활용된 변수들 호출
+        // console.log(v8); v8은 전역이라 가능
+
+        /* var, let 차이점 비교 : scope {} */
+        function myfun2(){
+            var name = "playdata";
+            
+            if(name == "playdata"){
+                var msg1 = "encore"; // 로컬, 함수 전 내부에서 사용
+                let msg2 = "엔코아"; // 로컬, 선언된 {} 내부에서 사용
+            }
+            
+            console.log(msg1);
+            // console.log(msg2);//let으로 if{}내부에서 선언 따라서 사용 불가
+
+        }
+        myfun2();
+
+
+    </script>
+
+
+</body>
+</html>

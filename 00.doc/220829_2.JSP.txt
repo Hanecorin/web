@@ -1,0 +1,94 @@
+JSP
+- step05_JSP project
+
+1. Java Server Page
+	- 개발은 jsp로 개발해서 서버에 배포
+	- 최초 client가 jsp 요청시
+		web server(tomcat)이 servlet으로 변환 
+			-> 컴파일 -> byte code를 메모리에 로딩 
+				-> servlet 객체 생성 -> 서비스
+	
+	- http://ip:port/context/file.jsp
+	
+2. 주목적
+	- view 화면을 최적의 UI로 구성 가능 
+	- java 코드를 jsp에선 사용 가능하기 때문에 자바 객체의 데이터를 화면에 출력 
+		: html에선 자바 코드 사용 불가 
+		
+		
+3. 구성
+	1. jsp tag		
+	2. html/css/java script 다 가능
+	
+
+4. 개발 관점의 특징
+	1. 개발이 쉽다
+	2. servlet으로 변환, 간혹 오류는 변환된 servlet 파일 기준으로 발생
+		- 에러 잡기가 어렵다
+	3. 내장 객체가 존재
+		- 별도의 변수 선언없이 변수 사용 가능
+		- 변수가 참조하는 내장 객체들이 jsp 실행시 자동 생성
+		- PrintWriter의 out 
+		  HttpServletRequest request
+		  HttpServletResponse response
+		  HttpSession session (쿠키는 내장 객체 아님)
+		  ..
+
+
+5. jsp tag 종류
+	* jsp에서만 가능한
+	1. jsp scripting  : jsp1scripting.jsp
+		- jsp의 기본 tag
+		- 5가지 종류만 있음
+			1. jsp 지시자(중요)
+				-  jsp 파일을 의미, 응답 포멧 설정, import 문장 선언구,...
+				- <%@ page %>
+				
+			2. jsp 선언자
+				- 멤버 변수와 메소드 구현 tag
+				- <%!   %>
+				
+			3. jsp scriptlet
+				- service() or doGet() or doPost() 와 같은 서비스 로직 구현 tag
+				- 순수 자바 코드 위주로 개발
+				- jsp 권장사항
+					: java 코드가 아닌 tag 위주로 개발 권장하기 때무에 현 추세에선 비추
+				- <%   %>
+				
+			4. jsp expression(출력)
+				- service() or doGet() or doPost() 와 같은 서비스 내에서 출력 담당
+				- <%= %>
+				
+			5. jsp 주석
+				- <%-- --%>
+			
+			
+			
+	2. jsp action
+		- 다양하나 page이동 tag 중요
+			forward
+			include
+			
+		- 실습 파일
+			jsp2one.jsp -> jsp2two.jsp
+	
+	3. EL(expression language)
+		- ${}
+			- request : requestScope 표현 / session : sessionScope 표현
+		- 용도 : 철저하게 브라우저에 데이터 출력, 자바 데이터도 출력
+		- 장점 : jsp에는 순수 자바 코드 최소로 개발 권장
+				비교, 연산등의 로직 처리 기능 보유
+	
+	4. JSTL(jsp stardard tag library)
+		- 외부 library 를 셋팅
+		- 어디에서 제공
+			apache 사이트 도는 tomcat의 sample에서 제공
+		- 주요 tag
+			1. 조건 tag
+			2. 반복 tag
+		- 개발단계
+			1단계 - library 셋팅
+			2단계 - jsp에 jstl tag 사용하겠다는 선언
+			3단계 - 사용해서 구현
+			
+

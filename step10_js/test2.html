@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test2.html</title>
+</head>
+
+<body>
+    <script>
+        let data = "[['Task', 'Hours per Day'],['작업', 11], ['Eat',  2],['Commute',  2],['Watch TV', 2],['Sleep', 7]]";
+
+        //순수 문자열을 js 객체로(배열) 변환
+        data = eval(data);
+
+        console.log(typeof (data));
+        console.log(data);
+        console.log(data.length);
+
+
+    </script>
+</body>
+
+</html>

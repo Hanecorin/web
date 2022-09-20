@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h3>page 이동 기술 학습</h3>
+	<hr>
+	<!-- http://ip:port/context/move.html
+		->http://ip:port/context/A
+		 -->
+	1. html link <a href="A">이동</a><br>
+	2. html button  <button onclick="location.href='A'">이동</button>   <br>
+	
+	<hr>
+	<form action = "A" method = "post">
+		<input type = "submit" value = "3. A로 post이동">
+	</form>
+	
+	<hr>
+	<form action = "A" method = "get">
+		<input type = "submit" value = "4. A로 get이동">
+	</form>
+
+</body>
+</html>

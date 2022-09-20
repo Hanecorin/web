@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>step02ajax.html</title>
+</head>
+<body>
+
+	<button onclick="ajaxTest2()">사원들 보기</button>
+	
+	<div id="dataView"></div>
+
+	<script type="text/javascript">
+		function ajaxTest2() {
+			const xhttp = new XMLHttpRequest();
+			xhttp.onload = function() {
+				//[{"사번":"사원0","급여":1000,"사원명":"이름0"},{"사번":"사원1","급여":1001,"사원명":"이름1"},{"사번":"사원2","급여":1002,"사원명":"이름2"}
+				//,{"사번":"사원3","급여":1003,"사원명":"이름3"},{"사번":"사원4","급여":1004,"사원명":"이름4"}]
+				let resData = this.responseText;  //json배열 형식의 순순 문자열로 응답 받음
+								
+				//console.log(typeof(resData)); //strig
+				
+				
+				resData = JSON.parse(resData); //순수 문자열을 JSON 객체로 변화
+				//console.log(typeof(resData)); //object
+				//console.log(resData.length); // 5
+				
+				let tableData = '<table border="1"><tr><th>사번</th><th>급여</th><th>사원명</th></tr>';
+					
+				/* JSON 배열의 각각의 index에 속한 개별 JSON 객체를 착출하는 반복문
+				v - 배열 내부의 각 요소인 json 데이터의 index
+				배열[index] - 해당 index에 속한 json 객체 의미 */
+				for(v in resData){
+					tableData = tableData + `<tr><td>${resData[v].사번}</td>
+												 <td>${resData[v].급여}</td>
+												 <td>${resData[v].사원명}</td></tr>`;
+				}
+				
+				tableData = tableData + "</table>";
+				
+				console.log(tableData);//콘솔창에 출력후 html에 직접 넣고 문제 없이 table 생성되는거 확인 후 div에 반영
+				
+				document.getElementById("dataView").innerHTML = tableData;
+			}
+			xhttp.open("GET", "step02", true); 
+			xhttp.send();
+		}
+
+		
+	</script>
+
+</body>
+</html>

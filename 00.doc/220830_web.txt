@@ -1,0 +1,38 @@
+
+1. 주요 css 참고 문헌
+
+https://www.w3schools.com/cssref/css_selectors.asp
+
+2. step07_fullStack 실습 단계
+	1단계	
+		부서 번호 브라우저에 입력 -> crud 결과를 브라우저에 출력
+		detpsearch.html -> CompanyController(servlet) -> EmpDeptDAO -> db
+		-> EmpDeptDAO -> CompanyController(servlet) -> deptview.jsp(view)
+		
+	
+	2단계
+		서비스 로직 구현
+		1. 하나의 부서 검색
+			deptsearch.html : 입력 양식(form)
+				CompanyController
+					deptone.jsp에서 출력
+			
+		2. 모든 부서 검색
+			deptall.html : 버튼 하나 
+
+
+
+=======
+1. jpa + servlet&jsp
+	- java, sql, web, tomcat(was, web server, server, container, servlet engine)
+	
+	
+	
+2. 주제
+	1. dept table 사용한 web 개발
+	2. java에서 step18_emp_deptMission_t 단계를 web 개발 업그레이드
+	3. 강사가 미션 풀이 제공
+	4. 자율주제로 웹사이트 가볍게 개발
+	
+
+3. servlet & jsp 플젝 이후에 팀 구성
